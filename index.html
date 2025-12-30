@@ -190,7 +190,7 @@
         /* ===== HEADER WITH LOGO ===== */
         .header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             position: relative;
         }
 
@@ -221,19 +221,16 @@
         }
 
         .logo {
-            max-width: 90%;
-            width: 600px;
+            max-width: 100%;
+            width: 800px;
             height: auto;
             image-rendering: pixelated;
-            filter: drop-shadow(0 0 20px rgba(93, 140, 62, 0.5))
-                    drop-shadow(0 0 40px rgba(93, 140, 62, 0.3))
-                    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.8));
             animation: logoFloat 3s ease-in-out infinite;
         }
 
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-5px); }
         }
 
         .logo-glow {
@@ -1089,6 +1086,7 @@
             setTimeout(() => {
                 document.getElementById('loadingScreen').classList.add('hidden');
                 document.getElementById('mainContent').classList.add('visible');
+                window.scrollTo(0, 0);
             }, 2000);
         }
 
