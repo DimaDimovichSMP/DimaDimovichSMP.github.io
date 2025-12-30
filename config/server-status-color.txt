@@ -1,3 +1,4 @@
 #55FF55
 /* online: #55FF55 */
 /* offline: #ff5555 */
+/* maintenance: ffaa00 */
