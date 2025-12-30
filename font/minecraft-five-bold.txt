@@ -1,0 +1,7 @@
+@font-face{
+    font-family Minecraft Five Bold;
+        url(https://github.com/DimaDimovichSMP/DimaDimovichSMP.github.io/raw/refs/heads/main/font/minecraft-five-bold.woff2)format(woff2),
+    font-weightnormal;
+    font-stylenormal;
+    font-displayswap;
+}
