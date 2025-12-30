@@ -25,6 +25,7 @@
             --mc-night: #1a1a2e;
             --telegram-blue: #0088cc;
             --telegram-dark: #006699;
+            --status-color: #888888;
         }
 
         body {
@@ -560,15 +561,17 @@
             background: rgba(0, 0, 0, 0.5);
             border: 3px solid #333;
             padding: 15px 30px;
+            transition: all 0.3s ease;
         }
 
         .status-indicator {
             width: 15px;
             height: 15px;
-            background: #55FF55;
+            background: var(--status-color);
             border-radius: 50%;
             animation: pulse 1.5s infinite;
-            box-shadow: 0 0 10px #55FF55;
+            box-shadow: 0 0 10px var(--status-color);
+            transition: all 0.3s ease;
         }
 
         @keyframes pulse {
@@ -578,12 +581,47 @@
 
         .status-text {
             font-size: 18px;
-            color: #55FF55;
+            color: var(--status-color);
+            transition: color 0.3s ease;
+        }
+
+        .status-label {
+            color: #888;
+        }
+
+        .status-value {
+            color: inherit;
+            font-weight: 700;
         }
 
         .players-count {
             font-size: 14px;
             color: #aaa;
+        }
+
+        .versions-label {
+            color: #888;
+        }
+
+        .versions-value {
+            color: #55FF55;
+            font-weight: 700;
+        }
+
+        /* Loading state for status */
+        .status-loading {
+            display: inline-block;
+            width: 80px;
+            height: 14px;
+            background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 3px;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
         /* ===== TELEGRAM ===== */
@@ -694,6 +732,11 @@
             box-shadow: 0 2px 0 #2d5016;
         }
 
+        /* ===== ERROR STATE ===== */
+        .error-text {
+            color: #ff5555 !important;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .logo {
@@ -775,10 +818,20 @@
         <!-- SERVER STATUS -->
         <div class="status-section">
             <div class="status-box">
-                <div class="status-indicator"></div>
+                <div class="status-indicator" id="statusIndicator"></div>
                 <div>
-                    <p class="status-text">Status: ERROR LOADING DATA</p>
-                    <p class="players-count">Versions: ERROR LOADING DATA</p>
+                    <p class="status-text" id="statusText">
+                        <span class="status-label">Status: </span>
+                        <span class="status-value" id="statusValue">
+                            <span class="status-loading"></span>
+                        </span>
+                    </p>
+                    <p class="players-count">
+                        <span class="versions-label">Versions: </span>
+                        <span class="versions-value" id="versionsValue">
+                            <span class="status-loading"></span>
+                        </span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -807,111 +860,111 @@
         </section>
 
         <!-- RULES -->
-<section class="section" id="rules">
-    <h2 class="section-title">RULES</h2>
-    <div class="rules-list">
-        <div class="rule">
-            <div class="rule-number">1</div>
-            <p class="rule-text">No Hacked Clients</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">2</div>
-            <p class="rule-text">No Movement Mods</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">3</div>
-            <p class="rule-text">No Inventory Mod</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">4</div>
-            <p class="rule-text">No Health Indicators</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">5</div>
-            <p class="rule-text">No Radar</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">6</div>
-            <p class="rule-text">No Freecam</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">7</div>
-            <p class="rule-text">No ESP</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">8</div>
-            <p class="rule-text">No Auto or Easy Place</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">9</div>
-            <p class="rule-text">No Macros or Scripts</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">10</div>
-            <p class="rule-text">No Auto Clicker</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">11</div>
-            <p class="rule-text">No Mouse Tweaks/ Scrollers</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">12</div>
-            <p class="rule-text">No Crafting Modifications</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">13</div>
-            <p class="rule-text">No Abusing Bugs</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">14</div>
-            <p class="rule-text">No Attempted Duplicating</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">15</div>
-            <p class="rule-text">No Duplicating Items</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">16</div>
-            <p class="rule-text">No IRL Trading</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">17</div>
-            <p class="rule-text">No Invite Rewards</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">18</div>
-            <p class="rule-text">No External Gambling</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">19</div>
-            <p class="rule-text">No Discord Boost Rewards</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">20</div>
-            <p class="rule-text">No Cross-Server Trading</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">21</div>
-            <p class="rule-text">No Staff Impersonation</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">22</div>
-            <p class="rule-text">No Using More Than 5 Accounts</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">23</div>
-            <p class="rule-text">No Finding or Using the Seed</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">24</div>
-            <p class="rule-text">No Spamming Voice Chat</p>
-        </div>
-        <div class="rule">
-            <div class="rule-number">25</div>
-            <p class="rule-text">Report all Bugs, Glitches, and Cheaters</p>
-        </div>
-    </div>
-</section>
+        <section class="section" id="rules">
+            <h2 class="section-title">RULES</h2>
+            <div class="rules-list">
+                <div class="rule">
+                    <div class="rule-number">1</div>
+                    <p class="rule-text">No Hacked Clients</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">2</div>
+                    <p class="rule-text">No Movement Mods</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">3</div>
+                    <p class="rule-text">No Inventory Mod</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">4</div>
+                    <p class="rule-text">No Health Indicators</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">5</div>
+                    <p class="rule-text">No Radar</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">6</div>
+                    <p class="rule-text">No Freecam</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">7</div>
+                    <p class="rule-text">No ESP</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">8</div>
+                    <p class="rule-text">No Auto or Easy Place</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">9</div>
+                    <p class="rule-text">No Macros or Scripts</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">10</div>
+                    <p class="rule-text">No Auto Clicker</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">11</div>
+                    <p class="rule-text">No Mouse Tweaks/ Scrollers</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">12</div>
+                    <p class="rule-text">No Crafting Modifications</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">13</div>
+                    <p class="rule-text">No Abusing Bugs</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">14</div>
+                    <p class="rule-text">No Attempted Duplicating</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">15</div>
+                    <p class="rule-text">No Duplicating Items</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">16</div>
+                    <p class="rule-text">No IRL Trading</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">17</div>
+                    <p class="rule-text">No Invite Rewards</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">18</div>
+                    <p class="rule-text">No External Gambling</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">19</div>
+                    <p class="rule-text">No Discord Boost Rewards</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">20</div>
+                    <p class="rule-text">No Cross-Server Trading</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">21</div>
+                    <p class="rule-text">No Staff Impersonation</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">22</div>
+                    <p class="rule-text">No Using More Than 5 Accounts</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">23</div>
+                    <p class="rule-text">No Finding or Using the Seed</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">24</div>
+                    <p class="rule-text">No Spamming Voice Chat</p>
+                </div>
+                <div class="rule">
+                    <div class="rule-number">25</div>
+                    <p class="rule-text">Report all Bugs, Glitches, and Cheaters</p>
+                </div>
+            </div>
+        </section>
 
         <!-- TELEGRAM -->
         <section class="telegram-section">
@@ -933,6 +986,72 @@
     <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">⬆️</div>
 
     <script>
+        // ===== CONFIG URLs (relative paths for GitHub Pages) =====
+        const CONFIG_URLS = {
+            status: 'config/server-status.txt',
+            statusColor: 'config/server-status-color.txt',
+            versions: 'config/server-versions.txt'
+        };
+
+        // ===== FETCH SERVER CONFIG =====
+        async function fetchServerConfig() {
+            try {
+                // Fetch all config files in parallel
+                const [statusResponse, colorResponse, versionsResponse] = await Promise.all([
+                    fetch(CONFIG_URLS.status + '?t=' + Date.now()),
+                    fetch(CONFIG_URLS.statusColor + '?t=' + Date.now()),
+                    fetch(CONFIG_URLS.versions + '?t=' + Date.now())
+                ]);
+
+                // Parse responses
+                const statusText = await statusResponse.text();
+                const colorText = await colorResponse.text();
+                const versionsText = await versionsResponse.text();
+
+                // Get first line only and trim whitespace
+                const status = statusText.split('\n')[0].trim();
+                const color = colorText.split('\n')[0].trim();
+                const versions = versionsText.split('\n')[0].trim();
+
+                // Update the UI
+                updateServerStatus(status, color, versions);
+
+            } catch (error) {
+                console.error('Error fetching server config:', error);
+                updateServerStatus('ERROR', '#ff5555', 'ERROR');
+            }
+        }
+
+        // ===== UPDATE SERVER STATUS UI =====
+        function updateServerStatus(status, color, versions) {
+            const statusValue = document.getElementById('statusValue');
+            const statusIndicator = document.getElementById('statusIndicator');
+            const statusText = document.getElementById('statusText');
+            const versionsValue = document.getElementById('versionsValue');
+
+            // Validate hex color (basic check)
+            const isValidColor = /^#[0-9A-Fa-f]{6}$/.test(color);
+            const finalColor = isValidColor ? color : '#888888';
+
+            // Update CSS variable for dynamic coloring
+            document.documentElement.style.setProperty('--status-color', finalColor);
+
+            // Update status text
+            statusValue.textContent = status;
+            statusValue.style.color = finalColor;
+
+            // Update indicator color and glow
+            statusIndicator.style.background = finalColor;
+            statusIndicator.style.boxShadow = `0 0 10px ${finalColor}`;
+
+            // Update versions
+            versionsValue.textContent = versions;
+
+            // Add animation class
+            statusValue.style.animation = 'fadeInUp 0.5s ease forwards';
+            versionsValue.style.animation = 'fadeInUp 0.5s ease 0.2s forwards';
+        }
+
         // ===== CREATE STARS =====
         function createStars() {
             const starsContainer = document.getElementById('stars');
@@ -990,7 +1109,7 @@
                         rules.forEach((rule, index) => {
                             setTimeout(() => {
                                 rule.classList.add('visible');
-                            }, index * 200);
+                            }, index * 100);
                         });
                     }
                 });
@@ -1022,6 +1141,12 @@
             hideLoadingScreen();
             animateSections();
             handleScrollButton();
+            
+            // Fetch server config on load
+            fetchServerConfig();
+            
+            // Refresh server config every 30 seconds
+            setInterval(fetchServerConfig, 30000);
         });
 
         // ===== PARALLAX EFFECT FOR STARS =====
