@@ -9,4 +9,4 @@ Colors for server-status-color.txt:
 
 online: #55FF55
 offline: #ff5555
-maintenance: ffaa00
+maintenance: #ffaa00
