@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DimaDimovichSMP | Welcome</title>
     <style>
-        /* ===== CUSTOM MINECRAFT FONT ===== */
         @font-face {
             font-family: 'Minecraft';
             src: url('font/minecraft-five-regular.woff2') format('woff2');
@@ -47,14 +46,10 @@ html.no-scroll,
 body.no-scroll{
     overflow: hidden;
 }
-
-        /* Firefox: цвет ползунка и дорожки */
         html{
             scrollbar-width: auto;
             scrollbar-color: rgba(255,255,255,.55) #121111; /* thumb, track */
         }
-
-        /* Chrome / Edge / Safari */
         *::-webkit-scrollbar-track{
             background: #121111; /* фон scrollbar (дорожка) */
         }
@@ -62,8 +57,6 @@ body.no-scroll{
         *::-webkit-scrollbar-corner{
             background: #121111;
         }
-
-        /* ===== LOADING SCREEN ===== */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -126,8 +119,6 @@ body.no-scroll{
             0%, 50%, 100% { opacity: 1; }
             25%, 75% { opacity: 0.5; }
         }
-
-        /* ===== PARTICLES ===== */
         .particles {
             position: fixed;
             top: 0;
@@ -168,8 +159,6 @@ body.no-scroll{
                 opacity: 0;
             }
         }
-
-        /* ===== STARS ===== */
         .stars {
             position: fixed;
             top: 0;
@@ -192,8 +181,6 @@ body.no-scroll{
             0%, 100% { opacity: 0.3; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.2); }
         }
-
-        /* ===== MAIN CONTENT ===== */
         .main-content {
             position: relative;
             z-index: 2;
@@ -206,8 +193,6 @@ body.no-scroll{
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* ===== HEADER WITH LOGO ===== */
         .header {
             text-align: center;
             padding: 60px 20px;
@@ -269,8 +254,6 @@ body.no-scroll{
             0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
             50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
         }
-
-        /* ===== SUBTITLE ===== */
         .subtitle {
             font-size: 18px;
             color: #aaa;
@@ -290,8 +273,6 @@ body.no-scroll{
                 transform: translateY(0);
             }
         }
-
-        /* ===== SERVER IP ===== */
         .server-ip-section {
             text-align: center;
             margin: 40px 20px;
@@ -374,8 +355,6 @@ body.no-scroll{
             50% { transform: translateX(-50%) scale(1.2); }
             100% { transform: translateX(-50%) scale(1); }
         }
-
-        /* ===== SECTIONS ===== */
         .section {
             max-width: 1000px;
             margin: 60px auto;
@@ -405,8 +384,6 @@ body.no-scroll{
             margin: 0 15px;
             color: #FFD700;
         }
-
-        /* ===== CARDS ===== */
         .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -474,8 +451,6 @@ body.no-scroll{
             line-height: 1.8;
             color: #ccc;
         }
-
-        /* ===== SERVER FEATURES ===== */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -525,8 +500,6 @@ body.no-scroll{
             color: #55FF55;
             text-shadow: 1px 1px 0 #000;
         }
-
-        /* ===== RULES ===== */
         .rules-list {
             background: rgba(139, 0, 0, 0.2);
             border: 4px solid #8B0000;
@@ -571,8 +544,6 @@ body.no-scroll{
             line-height: 1.8;
             color: #ddd;
         }
-
-        /* ===== ONLINE STATUS ===== */
         .status-section {
             text-align: center;
             margin: 40px 20px;
@@ -629,8 +600,6 @@ body.no-scroll{
         .versions-value {
             color: #55FF55;
         }
-
-        /* Loading state for status */
         .status-loading {
             display: inline-block;
             width: 80px;
@@ -645,8 +614,6 @@ body.no-scroll{
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
-
-        /* ===== TELEGRAM ===== */
         .telegram-section {
             text-align: center;
             margin: 60px 20px;
@@ -691,8 +658,6 @@ body.no-scroll{
             width: 35px;
             height: 35px;
         }
-
-        /* ===== FOOTER ===== */
         .footer {
             text-align: center;
             padding: 40px 20px;
@@ -717,8 +682,6 @@ body.no-scroll{
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.1); }
         }
-
-        /* ===== SCROLL TO TOP BUTTON ===== */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -753,13 +716,9 @@ body.no-scroll{
             transform: translateY(2px);
             box-shadow: 0 2px 0 #2d5016;
         }
-
-        /* ===== ERROR STATE ===== */
         .error-text {
             color: #ff5555 !important;
         }
-
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .logo {
                 width: 90%;
@@ -803,22 +762,13 @@ body.no-scroll{
     </style>
 </head>
 <body class="no-scroll">
-    <!-- LOADING SCREEN -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-block"></div>
         <p class="loading-text">Loading world...</p>
     </div>
-
-    <!-- STARS -->
     <div class="stars" id="stars"></div>
-
-    <!-- PARTICLES -->
     <div class="particles" id="particles"></div>
-
-    <!-- MAIN CONTENT -->
     <div class="main-content" id="mainContent">
-        
-        <!-- HEADER WITH LOGO -->
         <header class="header">
             <div class="logo-container">
                 <div class="logo-glow"></div>
@@ -826,8 +776,6 @@ body.no-scroll{
             </div>
             <p class="subtitle">⛏️ SMP SERVER FROM DIMADIMOVICH ⛏️</p>
         </header>
-
-        <!-- SERVER IP -->
         <div class="server-ip-section">
             <div class="server-ip-box" onclick="copyIP()">
                 <div class="copied-message" id="copiedMsg">Copied!</div>
@@ -836,8 +784,6 @@ body.no-scroll{
                 <p class="copy-hint">[ Click to copy ]</p>
             </div>
         </div>
-
-        <!-- SERVER STATUS -->
         <div class="status-section">
             <div class="status-box">
                 <div class="status-indicator" id="statusIndicator"></div>
@@ -857,8 +803,6 @@ body.no-scroll{
                 </div>
             </div>
         </div>
-
-        <!-- FEATURES -->
         <section class="section" id="features">
             <h2 class="section-title">FEATURES</h2>
             <div class="features-grid">
@@ -880,8 +824,6 @@ body.no-scroll{
                 </div>
             </div>
         </section>
-
-        <!-- RULES -->
         <section class="section" id="rules">
             <h2 class="section-title">RULES</h2>
             <div class="rules-list">
@@ -987,8 +929,6 @@ body.no-scroll{
                 </div>
             </div>
         </section>
-
-        <!-- TELEGRAM -->
         <section class="telegram-section">
             <a href="https://t.me/DimaDimovichSMP" class="telegram-btn" target="_blank">
                 <svg class="telegram-icon" viewBox="0 0 24 24" fill="white">
@@ -997,45 +937,31 @@ body.no-scroll{
                 JOIN TELEGRAM
             </a>
         </section>
-
-        <!-- FOOTER -->
         <footer class="footer">
             <p class="footer-text">© 2025 - 2026 DimaDimovichSMP - All Rights Reserved</p>
         </footer>
     </div>
-
-    <!-- SCROLL TO TOP BUTTON -->
     <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">⬆️</div>
 
     <script>
-        // ===== CONFIG URLs (relative paths for GitHub Pages) =====
         const CONFIG_URLS = {
             status: 'config/server-status.txt',
             statusColor: 'config/server-status-color.txt',
             versions: 'config/server-versions.txt'
         };
-
-        // ===== FETCH SERVER CONFIG =====
         async function fetchServerConfig() {
             try {
-                // Fetch all config files in parallel
                 const [statusResponse, colorResponse, versionsResponse] = await Promise.all([
                     fetch(CONFIG_URLS.status + '?t=' + Date.now()),
                     fetch(CONFIG_URLS.statusColor + '?t=' + Date.now()),
                     fetch(CONFIG_URLS.versions + '?t=' + Date.now())
                 ]);
-
-                // Parse responses
                 const statusText = await statusResponse.text();
                 const colorText = await colorResponse.text();
                 const versionsText = await versionsResponse.text();
-
-                // Get first line only and trim whitespace
                 const status = statusText.split('\n')[0].trim();
                 const color = colorText.split('\n')[0].trim();
                 const versions = versionsText.split('\n')[0].trim();
-
-                // Update the UI
                 updateServerStatus(status, color, versions);
 
             } catch (error) {
@@ -1043,38 +969,22 @@ body.no-scroll{
                 updateServerStatus('ERROR', '#ff5555', 'ERROR');
             }
         }
-
-        // ===== UPDATE SERVER STATUS UI =====
         function updateServerStatus(status, color, versions) {
             const statusValue = document.getElementById('statusValue');
             const statusIndicator = document.getElementById('statusIndicator');
             const statusText = document.getElementById('statusText');
             const versionsValue = document.getElementById('versionsValue');
-
-            // Validate hex color (basic check)
             const isValidColor = /^#[0-9A-Fa-f]{6}$/.test(color);
             const finalColor = isValidColor ? color : '#888888';
-
-            // Update CSS variable for dynamic coloring
             document.documentElement.style.setProperty('--status-color', finalColor);
-
-            // Update status text
             statusValue.textContent = status;
             statusValue.style.color = finalColor;
-
-            // Update indicator color and glow
             statusIndicator.style.background = finalColor;
             statusIndicator.style.boxShadow = `0 0 10px ${finalColor}`;
-
-            // Update versions
             versionsValue.textContent = versions;
-
-            // Add animation class
             statusValue.style.animation = 'fadeInUp 0.5s ease forwards';
             versionsValue.style.animation = 'fadeInUp 0.5s ease 0.2s forwards';
         }
-
-        // ===== CREATE STARS =====
         function createStars() {
             const starsContainer = document.getElementById('stars');
             for (let i = 0; i < 100; i++) {
@@ -1087,8 +997,6 @@ body.no-scroll{
                 starsContainer.appendChild(star);
             }
         }
-
-        // ===== CREATE PARTICLES =====
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 30; i++) {
@@ -1100,8 +1008,6 @@ body.no-scroll{
                 particlesContainer.appendChild(particle);
             }
         }
-
-        // ===== LOADING SCREEN =====
         function hideLoadingScreen() {
             setTimeout(() => {
                 document.getElementById('loadingScreen').classList.add('hidden');
@@ -1110,8 +1016,6 @@ body.no-scroll{
                 window.scrollTo(0, 0);
             }, 2000);
         }
-
-        // ===== COPY IP =====
         function copyIP() {
             const ip = document.getElementById('serverIP').textContent;
             navigator.clipboard.writeText(ip).then(() => {
@@ -1120,15 +1024,12 @@ body.no-scroll{
                 setTimeout(() => msg.classList.remove('show'), 2000);
             });
         }
-
-        // ===== ANIMATE SECTIONS ON SCROLL =====
         function animateSections() {
             const sections = document.querySelectorAll('.section');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        // Animate rules
                         const rules = entry.target.querySelectorAll('.rule');
                         rules.forEach((rule, index) => {
                             setTimeout(() => {
@@ -1141,8 +1042,6 @@ body.no-scroll{
 
             sections.forEach(section => observer.observe(section));
         }
-
-        // ===== SCROLL TO TOP BUTTON =====
         function handleScrollButton() {
             const scrollTop = document.getElementById('scrollTop');
             window.addEventListener('scroll', () => {
@@ -1157,23 +1056,15 @@ body.no-scroll{
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', () => {
             createStars();
             createParticles();
             hideLoadingScreen();
             animateSections();
             handleScrollButton();
-            
-            // Fetch server config on load
             fetchServerConfig();
-            
-            // Refresh server config every 30 seconds
             setInterval(fetchServerConfig, 30000);
         });
-
-        // ===== PARALLAX EFFECT FOR STARS =====
         document.addEventListener('mousemove', (e) => {
             const stars = document.getElementById('stars');
             const x = (e.clientX / window.innerWidth - 0.5) * 20;
